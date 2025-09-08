@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*
+{
+    font-family: "Poppins", sans-serif;
+}
+
+:root
+{
+    --main-color: #29fd53;
+    --line-color: #28292d;
+    --background-color: #1c1c1c;
+}
+
+/* Body reset & container */
+body
+{
+    margin: 0;
+    padding: 0;
+    min-height: 160vh;
+    overflow: hidden;
+}
+
+::selection
+{
+    color: green;
+    background: #29fd53;
+}
+
+.container
+{
+    background: #2b2b2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    
+    z-index: 0;
+}
+
+#hex-grid
+{
+    height: 100vh;
+}
+
+/* The Grid */
+#hex-grid .grid
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(grid.svg) repeat;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background-size: 500px;
+}
+
+/* The Glow */
+#hex-grid .light
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15em;
+    height: 15em;
+    filter: blur(50px);
+    background: linear-gradient(90deg, #29fd53 0%, #29fd53 100%);
+    z-index: -100;
+}
+
+label, h2
+{
+    color: #29fd53;
+    font-weight: bold;
+}
+
+form
+{
+    position: absolute;
+    /* top: 64px;
+    left: 514px; */
+    top: 9.5%;
+    left: 34.2%;
+    /* top: 9vh;
+    left: 34vw; */
+    border: none;
+/*    background-color: rgba(0, 0, 0, 0.5);*/
+    /* width: 460px;
+    height: 584px; */
+    width: 30%;
+    height: 30%;
+    padding: 2%;
+    /* margin: 0px -200px; */
+    border-radius: 20px;
+}
+
+.box
+{
+    position: absolute;
+    /* top: 64px;
+    left: 514px; */
+    top: 9%;
+    left: 34%;
+    /* top: 9vh;
+    left: 34vw; */
+    /* width: 548px;
+    height: 630px; */
+    width: 34.4%;
+    height: 39%;
+    /* margin: 0px -200px; */
+    background: #1c1c1c;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: -10;
+}
+
+.box::before
+{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, #29fd53, #29fd53);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    z-index: -100;
+}
+
+.box::after
+{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, #29fd53, #29fd53);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    animation-delay: -3s;
+    z-index: -100;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        transform: rotate(0deg);
+    }
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+.form
+{
+    position: absolute;
+    inset: 2px;
+    border-radius: 20px;
+    background: var(--background-color);
+    z-index: 10;
+}
+
+fieldset
+{
+    border: none;
+}
+
+input, select, option, textarea
+{
+    width: 100%;
+    background: transparent;
+    color: silver;
+    border: 2px solid #2d2d2d;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.2s;
+    outline: none;
+}
+
+input:hover, textarea:hover
+{
+    color: white;
+    border-color: white;
+}
+
+input:focus, textarea:focus
+{
+    color: #29fd53;
+    border-color: #29fd53;
+    border-radius: 20px;
+    box-shadow: 0 0 100px #29fd53;
+}
+
+#address-opt
+{
+    width: 50%;
+}
+
+#subject-opt
+{
+    width: 90%;
+}
+
+select, option
+{
+    background-color: #1c1c1c;
+}
+
+input, select, option
+{
+    height: 4vh;
+}
+
+.submit, select, option
+{
+    cursor: pointer;
+}
+
+.submit
+{
+    position: relative;
+    background-color: transparent;
+    width: 50%;
+    height: 25%;
+    padding: -20px 0px;
+    left: 25%;
+    font-weight: bold;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 100px;
+    color: #29fd53;
+    border-color: transparent;
+    box-shadow: 0px 0px 6px 6px #29fd53;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.2s;
+    border: none;
+}
+
+.submit:hover
+{
+    color: green;
+    background: #29fd53;
+    letter-spacing: 4px;
+    box-shadow: 0 0 10px #29fd53, 0 0 20px #29fd53, 0 0 40px #29fd53, 0 0 80px #29fd53;
+    transform: scale(1.2, 1);
+}
+
+.submit:active
+{
+    box-shadow: 0px 0px 100px #29fd53;
+    transform: scale(1);
+}
